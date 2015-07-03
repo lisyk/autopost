@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  around_filter :user_time_zome, if: :current_user
+
   private
 
   def user_time_zome(&block)
